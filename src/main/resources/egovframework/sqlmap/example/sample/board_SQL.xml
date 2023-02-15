@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Sample">
+
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="boardVO" type="egovframework.vo.boardVO"/>
+	
+	<insert id="boardWriteSave">
+		insert into board1 values(#board_seq#,#board_title#,#board_content#)
+	</insert>
+	
+	<select id ="boardList" parameterClass="boardVO" resultClass="egovMap">
+		select * from board1
+	</select>
+	
+	<delete id="boardDel">
+		delete from board1 where board_seq = #board_seq#
+	</delete>
+</sqlMap>
